@@ -5,7 +5,6 @@ import ViewSweets from "./pages/ViewSweets";
 import SearchSweets from "./pages/SearchSweets";
 import PurchaseSweet from "./pages/PurchaseSweet";
 import RestockSweet from "./pages/RestockSweet";
-import SortSweets from "./pages/SortSweets";
 
 function App() {
   return (
@@ -15,7 +14,6 @@ function App() {
         <Route path="/" element={<AddSweet />} />
         <Route path="/view" element={<ViewSweets />} />
         <Route path="/search" element={<SearchSweets />} />
-        <Route path="/sort" element={<SortSweets />} />
         <Route path="/purchase" element={<PurchaseSweet />} />
         <Route path="/restock" element={<RestockSweet />} />
       </Routes>

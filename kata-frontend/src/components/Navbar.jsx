@@ -15,10 +15,6 @@ const Navbar = () => {
         <Link to="/search" className="hover:underline">
           Search
         </Link>
-        <Link to="/sort" className="hover:underline">
-          Sort
-        </Link>
-        
         <Link to="/purchase" className="hover:underline">
           Purchase
         </Link>
