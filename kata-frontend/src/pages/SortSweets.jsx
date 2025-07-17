@@ -2,14 +2,22 @@ import { useState, useEffect } from "react";
 import api from "../services/api"; // make sure this points to your axios instance
 
 const SortSweets = () => {
+<<<<<<< HEAD
   const [field, setField] = useState("name");
+=======
+  const [sortBy, setSortBy] = useState("name");
+>>>>>>> d10d35dd37d7964531d641c6a78b1a7868673b54
   const [order, setOrder] = useState("asc");
   const [sweets, setSweets] = useState([]);
 
   useEffect(() => {
     const fetchSortedSweets = async () => {
       try {
+<<<<<<< HEAD
         const queryString = new URLSearchParams({ field, order }).toString();
+=======
+        const queryString = new URLSearchParams({ sortBy, order }).toString();
+>>>>>>> d10d35dd37d7964531d641c6a78b1a7868673b54
         const res = await api.get(`/sweets/sort?${queryString}`);
         setSweets(res.data);
       } catch (err) {
@@ -18,7 +26,11 @@ const SortSweets = () => {
     };
 
     fetchSortedSweets();
+<<<<<<< HEAD
   }, [field, order]);
+=======
+  }, [sortBy, order]);
+>>>>>>> d10d35dd37d7964531d641c6a78b1a7868673b54
 
   return (
     <div className="max-w-4xl mx-auto mt-10 p-4">
@@ -30,6 +42,7 @@ const SortSweets = () => {
         <div>
           <label className="block font-semibold mb-1">Sort by:</label>
           <select
+<<<<<<< HEAD
             value={field}
             onChange={(e) => {
               const selectedField = e.target.value;
@@ -40,6 +53,12 @@ const SortSweets = () => {
               } else {
                 setOrder("asc");
               }
+=======
+            value={sortBy}
+            onChange={(e) => {
+              setSortBy(e.target.value);
+              if (e.target.value !== "price") setOrder("asc"); // Reset order if not price
+>>>>>>> d10d35dd37d7964531d641c6a78b1a7868673b54
             }}
             className="border px-3 py-2 rounded-lg w-full"
           >
@@ -50,6 +69,7 @@ const SortSweets = () => {
           </select>
         </div>
 
+<<<<<<< HEAD
         <div>
           <label className="block font-semibold mb-1">Order:</label>
           <select
@@ -61,6 +81,21 @@ const SortSweets = () => {
             <option value="desc">Descending</option>
           </select>
         </div>
+=======
+        {sortBy === "price" && (
+          <div>
+            <label className="block font-semibold mb-1">Order:</label>
+            <select
+              value={order}
+              onChange={(e) => setOrder(e.target.value)}
+              className="border px-3 py-2 rounded-lg w-full"
+            >
+              <option value="asc">High to Low</option>
+              <option value="desc">Low to High</option>
+            </select>
+          </div>
+        )}
+>>>>>>> d10d35dd37d7964531d641c6a78b1a7868673b54
       </div>
 
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
