@@ -40,7 +40,6 @@ app.get("/api/sweets", (req, res) => {
   res.json(sweets); // returns all available sweets
 });
 
-
 // ✅ SEARCH sweets
 app.get("/api/sweets/search", (req, res) => {
   const { name, category, minPrice, maxPrice } = req.query;
@@ -75,8 +74,8 @@ app.get("/api/sweets/sort", (req, res) => {
   const { field = "name", order = "asc" } = req.query;
 
   const sorted = [...sweets].sort((a, b) => {
-    if (field === "price") {
-      return order === "asc" ? a.price - b.price : b.price - a.price;
+    if (field === "price" || field === "quantity") {
+      return order === "asc" ? a[field] - b[field] : b[field] - a[field];
     } else {
       const valA = (a[field] || "").toLowerCase();
       const valB = (b[field] || "").toLowerCase();
@@ -96,7 +95,7 @@ app.post("/api/sweets/purchase", (req, res) => {
     return res.status(400).json({ error: "Invalid request body" });
   }
 
-  const sweet = sweets.find((s) => s.id === id);
+  const sweet = sweets.find((s) => s.id === parseInt(id));
 
   if (!sweet) {
     return res.status(404).json({ error: "Sweet not found" });
@@ -121,7 +120,8 @@ app.post("/api/sweets/restock", (req, res) => {
     return res.status(400).json({ error: "Invalid restock quantity" });
   }
 
-  const sweet = sweets.find((s) => s.id === id);
+  // const sweet = sweets.find((s) => s.id === id);
+  const sweet = sweets.find((s) => s.id === parseInt(id));
 
   if (!sweet) {
     return res.status(404).json({ error: "Sweet not found" });
