@@ -67,3 +67,17 @@ This is a **Sweet Shop Management System** built as part of the **Incubyte Codin
     ├── server.js             # Express backend server
     ├── package.json          # Project config
     ├── README.md             # Project documentation
+
+5. **Screen Shots**
+
+   ```bash
+   <img width="1069" height="944" alt="Screenshot 2025-07-16 234231" src="https://github.com/user-attachments/assets/28da09f1-220e-454e-88d3-f114b003686d" />
+
+
+6. **🙋 Author**
+
+   ```bash
+   👤 Piyush Sharma
+    GitHub: @PiyushSharma10718
+
+
