@@ -32,9 +32,14 @@ app.delete("/api/sweets/:id", (req, res) => {
 });
 
 // ✅ VIEW all sweets
+// app.get("/api/sweets", (req, res) => {
+//   res.status(200).json(sweets);
+// });
+
 app.get("/api/sweets", (req, res) => {
-  res.status(200).json(sweets);
+  res.json(sweets); // returns all available sweets
 });
+
 
 // ✅ SEARCH sweets
 app.get("/api/sweets/search", (req, res) => {
